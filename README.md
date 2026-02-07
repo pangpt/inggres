@@ -1,16 +1,45 @@
-# React + Vite
+# InggrisPro 🇮🇩🇬🇧
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi web belajar Bahasa Inggris yang responsif dan premium, dibuat khusus untuk penutur Bahasa Indonesia.
 
-Currently, two official plugins are available:
+## Fitur
+- **Kata Hari Ini**: Belajar kata baru setiap hari dengan definisi dan contoh.
+- **Kamus**: Cari kata bahasa Inggris dan dengarkan pelafalannya.
+- **Kuis**: Uji kemampuan bahasa Inggrismu dan raih skor tertinggi.
+- **Responsif**: Tampilan optimal di HP dan Desktop.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Teknologi
+- React + Vite
+- Tailwind CSS v4
+- Motion Framer & Canvas Confetti
+- LocalStorage Data
 
-## React Compiler
+## Cara Menjalankan
+1. Instal dependensi:
+   ```bash
+   npm install
+   ```
+2. Jalankan server development:
+   ```bash
+   npm run dev
+   ```
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Cara Deploy ke GitHub Pages
+Karena `gh` CLI tidak tersedia, silakan ikuti langkah manual ini:
 
-## Expanding the ESLint configuration
+1. Buat repositori baru di GitHub dengan nama **`inggres`**.
+2. Hubungkan repositori lokal ke GitHub:
+   ```bash
+   git remote add origin https://github.com/<USERNAME>/inggres.git
+   git branch -M main
+   git push -u origin main
+   ```
+   *(Ganti `<USERNAME>` dengan username GitHub Anda)*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Deploy aplikasi:
+   ```bash
+   npm run build
+   npm run deploy
+   ```
+
+4. Buka tab **Settings > Pages** di GitHub, pastikan Source diatur ke `gh-pages` branch.
