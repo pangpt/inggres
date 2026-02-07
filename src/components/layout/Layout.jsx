@@ -3,7 +3,7 @@ import { Home, Book, Brain, User, Library } from 'lucide-react';
 
 export default function Layout() {
     return (
-    return (
+
         <div className="min-h-screen bg-gray-900 text-white font-sans md:max-w-md md:mx-auto relative md:shadow-2xl overflow-hidden md:border-x border-gray-800">
             <main className="pb-24 min-h-screen overflow-y-auto custom-scrollbar">
                 <Outlet />
