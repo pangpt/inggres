@@ -11,7 +11,6 @@ export default function Dictionary() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Debounce search logic can be added, but manual enter is safer for API limits
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!query.trim()) return;
@@ -24,7 +23,7 @@ export default function Dictionary() {
             const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${query}`);
             setResult(response.data[0]);
         } catch (err) {
-            setError("Word not found. Try another English word.");
+            setError("Kata tidak ditemukan atau ejaan salah. Coba kata lain dalam bahasa Inggris.");
         } finally {
             setLoading(false);
         }
@@ -36,7 +35,6 @@ export default function Dictionary() {
         if (audioSrc) {
             new Audio(audioSrc).play();
         } else {
-            // Fallback
             const utterance = new SpeechSynthesisUtterance(result.word);
             utterance.lang = 'en-US';
             window.speechSynthesis.speak(utterance);
@@ -46,15 +44,15 @@ export default function Dictionary() {
     return (
         <div className="p-6 pb-24 min-h-screen">
             <header className="mb-6">
-                <h1 className="text-2xl font-bold text-white mb-1">Dictionary</h1>
-                <p className="text-gray-400 text-sm">Find meanings and pronunciations</p>
+                <h1 className="text-2xl font-bold text-white mb-1">Kamus</h1>
+                <p className="text-gray-400 text-sm">Temukan arti dan cara pengucapan (Inggris - Inggris)</p>
             </header>
 
             <form onSubmit={handleSearch} className="mb-8 relative">
                 <Input
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Type a word (e.g., resilience)..."
+                    placeholder="Ketik kata bahasa Inggris (cth: resilience)..."
                     className="pl-12"
                 />
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
@@ -98,7 +96,10 @@ export default function Dictionary() {
                             <div className="space-y-4">
                                 {meaning.definitions.slice(0, 3).map((def, idx) => (
                                     <Card key={idx} className="bg-gray-800/40 hover:bg-gray-800/60 transition-colors">
-                                        <p className="text-gray-200 mb-2 leading-relaxed">{def.definition}</p>
+                                        <div className="mb-1">
+                                            <span className="text-xs text-blue-400 font-bold uppercase tracking-wider">Definisi</span>
+                                            <p className="text-gray-200 leading-relaxed">{def.definition}</p>
+                                        </div>
                                         {def.example && (
                                             <div className="pl-3 border-l-2 border-blue-500 mt-2">
                                                 <p className="text-gray-400 italic text-sm">"{def.example}"</p>
@@ -115,7 +116,7 @@ export default function Dictionary() {
             {!result && !loading && !error && (
                 <div className="flex flex-col items-center justify-center mt-20 text-gray-600">
                     <Book size={48} className="mb-4 opacity-50" />
-                    <p>Start typing to search...</p>
+                    <p>Mulai ketik untuk mencari...</p>
                 </div>
             )}
         </div>

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Dictionary from './pages/Dictionary';
 import Quiz from './pages/Quiz';
 import Profile from './pages/Profile';
+import Grammar from './pages/Grammar';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="dictionary" element={<Dictionary />} />
+          <Route path="grammar" element={<Grammar />} />
           <Route path="quiz" element={<Quiz />} />
           <Route path="profile" element={<Profile />} />
         </Route>
