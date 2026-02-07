@@ -75,7 +75,7 @@ export default function Profile() {
             </div>
 
             <div className="mt-8 text-center text-gray-600 text-sm">
-                <p>InggrisPro v1.0.0</p>
+                <p>InggrisPro v1.1.0</p>
                 <p>Created by You</p>
             </div>
         </div>
